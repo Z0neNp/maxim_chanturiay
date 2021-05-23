@@ -75,7 +75,9 @@
               "browserTarget": "frontend:build:production"
             },
             "development": {
-              "browserTarget": "frontend:build:development"
+              "browserTarget": "frontend:build:development",
+              "host": "localhost",
+              "port": 4200
             }
           },
           "defaultConfiguration": "development"
