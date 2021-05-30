@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 
 import { AboutMeComponent } from './about-me.component';
 
@@ -21,5 +21,14 @@ describe('AboutMeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`should have as title 'About Me'`, () => {
+    expect(component.title).toEqual('About Me');
+  });
+
+  it('should render the title', () => {
+    let h1: HTMLElement = fixture.nativeElement.querySelector('h1');
+    expect(h1.textContent).toContain('About Me');
   });
 });
