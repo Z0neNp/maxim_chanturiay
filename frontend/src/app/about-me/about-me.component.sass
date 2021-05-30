@@ -1,0 +1,9 @@
+@import 'src/app/app.component'
+
+.rsm-el-not-shown
+  @include offset-to-top(20em)
+
+.rsm-el-shown
+  transform: translateY(0)
+  transform-origin: top center
+  transition: transform 1s
