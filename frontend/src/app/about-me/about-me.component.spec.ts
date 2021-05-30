@@ -4,16 +4,18 @@ import { By } from '@angular/platform-browser';
 import { AppModule } from '../app.module';
 
 import { AboutMeComponent } from './about-me.component';
+import { AbtMeRsmElDirective } from './rsm-el.directive';
 import { AbtMeRsmElTitleDirective } from './rsm-el-title.directive';
 
 describe('AboutMeComponent', () => {
   let component: AboutMeComponent;
   let fixture: ComponentFixture<AboutMeComponent>;
   let abtMeRsmElTitleDirectiveQueryResponse: DebugNode[];
+  let abtMeRsmElDirectiveQueryResponse: DebugNode[];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AboutMeComponent, AbtMeRsmElTitleDirective],
+      declarations: [ AboutMeComponent, AbtMeRsmElTitleDirective, AbtMeRsmElDirective ],
       imports: [AppModule]
     })
     .compileComponents();
@@ -26,6 +28,9 @@ describe('AboutMeComponent', () => {
     abtMeRsmElTitleDirectiveQueryResponse = fixture.debugElement.queryAll(
       By.directive(AbtMeRsmElTitleDirective)
     );
+    abtMeRsmElDirectiveQueryResponse = fixture.debugElement.queryAll(
+      By.directive(AbtMeRsmElDirective)
+    )
   });
 
   it("should create", () => {
@@ -38,8 +43,8 @@ describe('AboutMeComponent', () => {
   
   it("should contain the directives", () => {
     expect(abtMeRsmElTitleDirectiveQueryResponse).toHaveSize(1);
+    expect(abtMeRsmElDirectiveQueryResponse).toHaveSize(1);
   });
-
 
   it("should render the AbtMeRsmElTitleDirective with default style", () => {
     let directive: DebugNode = abtMeRsmElTitleDirectiveQueryResponse[0];
@@ -61,5 +66,16 @@ describe('AboutMeComponent', () => {
     el.dispatchEvent(new Event("touchstart"));
     el.dispatchEvent(new Event("touchend"));
     expect(el.classList).not.toContain("pressed");
+  });
+
+  it("should show AbtMeRsmElDirective when AbtMeRsmElTitleDirective touch ends", () => {
+    let directive: DebugNode = abtMeRsmElTitleDirectiveQueryResponse[0];
+    let el: HTMLElement = directive.nativeNode;
+    el.dispatchEvent(new Event("touchstart"));
+    el.dispatchEvent(new Event("touchend"));
+    directive = abtMeRsmElDirectiveQueryResponse[0];
+    el = directive.nativeNode;
+    expect(el.classList).toContain("rsm-el-shown");
+    expect(el.classList).not.toContain("rsm-el-not-shown");
   });
 });

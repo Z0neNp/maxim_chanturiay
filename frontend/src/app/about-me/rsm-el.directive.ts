@@ -15,7 +15,7 @@ export class AbtMeRsmElDirective extends RsmElDirective implements OnDestroy {
     super(el);
     this.commToRsmEl = this.abtMeRsmElCommService.rsmElTitleToRsmEl.subscribe(() => {
       this.showDirective();
-      setTimeout( () => { this.doNotShowDirective();}, 2000 );
+      // setTimeout( () => { this.doNotShowDirective();}, 2000 );
     });
   }
 

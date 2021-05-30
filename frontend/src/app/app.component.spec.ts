@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AboutMeComponent } from './about-me/about-me.component';
 
 import { AbtMeRsmElTitleToRsmElCommService } from './about-me/rsm-el-title-to-rsm-el-comm.service';
 import { AppComponent } from './app.component';
@@ -11,7 +12,8 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        AboutMeComponent
       ],
       providers: [
         AbtMeRsmElTitleToRsmElCommService
