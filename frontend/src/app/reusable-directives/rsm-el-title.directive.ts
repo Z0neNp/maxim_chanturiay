@@ -3,9 +3,7 @@ import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 import { AppModule } from '../app.module';
 import { LoggerService } from '../reusable-services/logger.service';
 
-@Directive({
-  selector: '[appRsmElTitleDirective]'
-})
+@Directive()
 export class RsmElTitleDirective implements OnInit {
 
   protected logger: LoggerService;
@@ -15,7 +13,7 @@ export class RsmElTitleDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    this.el.nativeElement.classList.add("rsm-el-title");
+    this.defaultStyle();
   }
 
   // @HostListener('mousedown') onMouseDown() {
@@ -40,15 +38,19 @@ export class RsmElTitleDirective implements OnInit {
   //   this.el.nativeElement.style.cursor = "pointer";
   // }
 
-  protected showPressed() {
-    this.logger.debug("RsmElTitleDirective", "showPressed", "Start");
-    this.el.nativeElement.classList.add("pressed");
-    this.logger.debug("RsmElTitleDirective", "showPressed", "Finish");
+  protected defaultStyle() {
+    this.el.nativeElement.classList.add("rsm-el-title");
   }
 
   protected showNonPressed() {
     this.logger.debug("RsmElTitleDirective", "showNonPressed", "Start");
     this.el.nativeElement.classList.remove("pressed");
     this.logger.debug("RsmElTitleDirective", "showNonPressed", "Finish");
+  }
+
+  protected showPressed() {
+    this.logger.debug("RsmElTitleDirective", "showPressed", "Start");
+    this.el.nativeElement.classList.add("pressed");
+    this.logger.debug("RsmElTitleDirective", "showPressed", "Finish");
   }
 }

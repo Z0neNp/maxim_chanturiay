@@ -3,9 +3,7 @@ import { Directive, ElementRef, Inject, OnInit } from '@angular/core';
 import { AppModule } from '../app.module';
 import { LoggerService } from '../reusable-services/logger.service';
 
-@Directive({
-  selector: '[appRsmElDirective]'
-})
+@Directive()
 export class RsmElDirective implements OnInit {
   
   protected logger: LoggerService;

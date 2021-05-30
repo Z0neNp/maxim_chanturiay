@@ -1,12 +1,8 @@
-import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 import { AppModule } from '../app.module';
 import { LoggerService } from './logger.service';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class RsmElTitleToRsmElCommService {
 
   private logger: LoggerService;
