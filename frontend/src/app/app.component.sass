@@ -1,21 +1,32 @@
 @import 'src/styles'
 
-@mixin offset-to-top($offset-units)
-  transform: translateY(-$offset-units)
-  transform-origin: top center
-  transition: transform 1s
+.app-container
+  width: 100%
+
+.not-rendered
+  display: none
+
+.rendered
+  overflow: hidden
+  display: block
 
 .pressed
-  transform: scale(0.99)
+  transform: scale(0.95)
   transition: transform 0.1s
+
+.rsm-el-ctr
+  overflow: hidden
+
+.rsm-el-shown
+  transform: translateY(0)
+  transform-origin: top center
+  transition: transform 1s ease-out
 
 .rsm-el-title
   background-color: #4a8fff
+  border-radius: 0.2em
   color: #ffffff
   font-size: 2em
   padding-left: 0.3em
   padding-top: 0.2em
   height: 1.5em
-
-.rsm-el-ctr
-  overflow: hidden

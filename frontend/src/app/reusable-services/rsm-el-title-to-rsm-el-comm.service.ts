@@ -1,23 +1,22 @@
 import { Observable, Subject } from 'rxjs';
 
-import { AppModule } from '../app.module';
-import { LoggerService } from './logger.service';
+import { RsmElState } from "../reusable-enums/rsm-el-state";
 
 export class RsmElTitleToRsmElCommService {
 
-  private logger: LoggerService;
-  public rsmElTitleToRsmEl: Observable<void>;
-  private rsmElTitleToRsmElSource: Subject<void>;
+  public rsmElTitleToRsmEl: Observable<RsmElState>;
+  private rsmElTitleToRsmElSource: Subject<RsmElState>;
 
   constructor() {
-    this.logger = AppModule.injector.get(LoggerService);
-    this.rsmElTitleToRsmElSource = new Subject<void>();
+    this.rsmElTitleToRsmElSource = new Subject<RsmElState>();
     this.rsmElTitleToRsmEl = this.rsmElTitleToRsmElSource.asObservable();
   }
 
   public showRsmEl(): void {
-    this.logger.debug("RsmElTitleToRsmElCommService", "showRsmEl", "Start");
-    this.rsmElTitleToRsmElSource.next();
-    this.logger.debug("RsmElTitleToRsmElCommService", "showRsmEl", "Finish");
+    this.rsmElTitleToRsmElSource.next(RsmElState.SHOWN);
+  }
+
+  public doNotShowRsmEl(): void {
+    this.rsmElTitleToRsmElSource.next(RsmElState.NOT_SHOWN);
   }
 }

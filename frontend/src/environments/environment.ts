@@ -3,6 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  event: {
+    pressed_delay: 100,
+    rendered_delay: 70
+  },
   logger: {
     debug: true
   },

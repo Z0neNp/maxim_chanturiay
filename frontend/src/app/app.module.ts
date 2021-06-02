@@ -9,6 +9,9 @@ import { AbtMeRsmElDirective } from './about-me/rsm-el.directive';
 import { AbtMeRsmElTitleDirective } from './about-me/rsm-el-title.directive';
 
 import { ContactInfoComponent } from './contact-info/contact-info.component';
+import { ContactInfoRsmElDirective } from './contact-info/rsm-el.directive';
+import { ContactInfoRsmElTitleDirective } from './contact-info/rsm-el-title.directive';
+
 import { EnterpriseExperienceComponent } from './enterprise-experience/enterprise-experience.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { EducationComponent } from './education/education.component';
@@ -20,6 +23,8 @@ import { EducationComponent } from './education/education.component';
     AbtMeRsmElDirective,
     AbtMeRsmElTitleDirective,
     ContactInfoComponent,
+    ContactInfoRsmElDirective,
+    ContactInfoRsmElTitleDirective,
     EnterpriseExperienceComponent,
     PortfolioComponent,
     EducationComponent,

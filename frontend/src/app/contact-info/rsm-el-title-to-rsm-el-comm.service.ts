@@ -6,6 +6,6 @@ import { RsmElTitleToRsmElCommService }
 @Injectable({
   providedIn: 'root'
 })
-export class AbtMeRsmElTitleToRsmElCommService extends RsmElTitleToRsmElCommService {
-
+export class ContactInfoRsmElTitleToRsmElCommService extends RsmElTitleToRsmElCommService {
+  
 }

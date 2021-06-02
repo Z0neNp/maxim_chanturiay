@@ -1,7 +1,10 @@
 import { Directive, ElementRef, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { RsmElDirective } from "src/app/reusable-directives/rsm-el.directive";
+import { RsmElDirective } from "../reusable-directives/rsm-el.directive";
+
+import { RsmElState } from "../reusable-enums/rsm-el-state";
+
 import { AbtMeRsmElTitleToRsmElCommService } from "./rsm-el-title-to-rsm-el-comm.service";
 
 @Directive({
@@ -9,20 +12,40 @@ import { AbtMeRsmElTitleToRsmElCommService } from "./rsm-el-title-to-rsm-el-comm
 })
 export class AbtMeRsmElDirective extends RsmElDirective implements OnDestroy {
 
-  private commToRsmEl: Subscription;
+  private commToRsmElTitle: Subscription;
   
-  constructor(el: ElementRef, private abtMeRsmElCommService: AbtMeRsmElTitleToRsmElCommService) {
+  constructor(el: ElementRef, private commToRsmElTitleService: AbtMeRsmElTitleToRsmElCommService) {
     super(el);
-    this.commToRsmEl = this.abtMeRsmElCommService.rsmElTitleToRsmEl.subscribe(() => {
-      this.showDirective();
-      // setTimeout( () => { this.doNotShowDirective();}, 2000 );
-    });
+    this.commToRsmElTitle = this.commToRsmElTitleService.rsmElTitleToRsmEl
+      .subscribe((state: RsmElState) => { this.consumeRsmElState(state); }
+    );
   }
 
   ngOnDestroy(): void {
     this.logger.debug("AbtMeRsmElDirective", "ngOnDestroy", "Start");
-    this.commToRsmEl.unsubscribe();
+    this.commToRsmElTitle.unsubscribe();
     this.logger.debug("AbtMeRsmElDirective", "ngOnDestroy", "Finish");
+  }
+
+  private consumeRsmElState(state: RsmElState): void {
+    this.logger.debug("AbtMeRsmElDirective", "consumeRsmElState", `Start - state: ${state}`);
+    if (state == RsmElState.SHOWN)
+      this.showDirective();
+    else if (state == RsmElState.NOT_SHOWN)
+      this.doNotShowDirective();
+    this.logger.debug("AbtMeRsmElDirective", "consumeRsmElState", "Finish");
+  }
+
+  protected doNotShowDirective(): void {
+    this.logger.debug("AbtMeRsmElDirective", "doNotShowDirective", "Start");
+    super.doNotShowDirective();
+    this.logger.debug("AbtMeRsmElDirective", "doNotShowDirective", "Finish");
+  }
+
+  protected showDirective(): void {
+    this.logger.debug("AbtMeRsmElDirective", "showDirective", "Start");
+    super.showDirective();
+    this.logger.debug("AbtMeRsmElDirective", "doNotShowDirective", "Finish");
   }
 
 }

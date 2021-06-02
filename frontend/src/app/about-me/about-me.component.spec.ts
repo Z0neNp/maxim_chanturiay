@@ -1,10 +1,15 @@
 import { DebugNode } from '@angular/core';
-import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { AppModule } from '../app.module';
+
+import { environment } from "../../environments/environment";
+
+import { AppModule } from "../app.module";
 
 import { AboutMeComponent } from './about-me.component';
+
 import { AbtMeRsmElDirective } from './rsm-el.directive';
+
 import { AbtMeRsmElTitleDirective } from './rsm-el-title.directive';
 
 describe('AboutMeComponent', () => {
@@ -16,15 +21,15 @@ describe('AboutMeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AboutMeComponent, AbtMeRsmElTitleDirective, AbtMeRsmElDirective ],
-      imports: [AppModule]
+      imports: [ AppModule ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AboutMeComponent);
-    fixture.detectChanges();
     component = fixture.componentInstance;
+    fixture.detectChanges();
     abtMeRsmElTitleDirectiveQueryResponse = fixture.debugElement.queryAll(
       By.directive(AbtMeRsmElTitleDirective)
     );
@@ -65,7 +70,9 @@ describe('AboutMeComponent', () => {
     let el: HTMLElement = directive.nativeNode;
     el.dispatchEvent(new Event("touchstart"));
     el.dispatchEvent(new Event("touchend"));
-    expect(el.classList).not.toContain("pressed");
+    setTimeout(() => {
+      expect(el.classList).not.toContain("pressed");
+    }, environment.event.rendered_delay);
   });
 
   it("should show AbtMeRsmElDirective when AbtMeRsmElTitleDirective touch ends", () => {
@@ -75,7 +82,9 @@ describe('AboutMeComponent', () => {
     el.dispatchEvent(new Event("touchend"));
     directive = abtMeRsmElDirectiveQueryResponse[0];
     el = directive.nativeNode;
-    expect(el.classList).toContain("rsm-el-shown");
-    expect(el.classList).not.toContain("rsm-el-not-shown");
+    setTimeout(() => {
+      expect(el.classList).toContain("rsm-el-shown");
+      expect(el.classList).not.toContain("rsm-el-not-shown");
+    }, environment.event.rendered_delay);
   });
 });

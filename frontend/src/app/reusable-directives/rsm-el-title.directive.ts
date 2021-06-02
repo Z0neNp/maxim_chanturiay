@@ -1,6 +1,9 @@
 import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
 
+import { environment } from '../../environments/environment';
+
 import { AppModule } from '../app.module';
+
 import { LoggerService } from '../reusable-services/logger.service';
 
 @Directive()
@@ -43,14 +46,12 @@ export class RsmElTitleDirective implements OnInit {
   }
 
   protected showNonPressed() {
-    this.logger.debug("RsmElTitleDirective", "showNonPressed", "Start");
-    this.el.nativeElement.classList.remove("pressed");
-    this.logger.debug("RsmElTitleDirective", "showNonPressed", "Finish");
+    setTimeout(() => {
+      this.el.nativeElement.classList.remove("pressed");
+    }, environment.event.pressed_delay);
   }
 
   protected showPressed() {
-    this.logger.debug("RsmElTitleDirective", "showPressed", "Start");
     this.el.nativeElement.classList.add("pressed");
-    this.logger.debug("RsmElTitleDirective", "showPressed", "Finish");
   }
 }
