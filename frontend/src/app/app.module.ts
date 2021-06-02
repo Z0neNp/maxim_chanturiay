@@ -21,6 +21,8 @@ import { EntExpRsmElTitleDirective } from './enterprise-experience/rsm-el-title.
 import { EntExpRsmElDirective } from './enterprise-experience/rsm-el.directive';
 
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { PortfolioRsmElTitleDirective } from './portfolio/rsm-el-title.directive';
+import { PortfolioRsmElDirective } from './portfolio/rsm-el.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     EnterpriseExperienceComponent,
     EntExpRsmElTitleDirective,
     EntExpRsmElDirective,
-    PortfolioComponent
+    PortfolioComponent,
+    PortfolioRsmElTitleDirective,
+    PortfolioRsmElDirective
   ],
   imports: [
     BrowserModule,

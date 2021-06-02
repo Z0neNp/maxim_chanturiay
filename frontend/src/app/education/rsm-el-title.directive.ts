@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { AbtMeRsmElTitleToRsmElTitlesCommService } from "../about-me/rsm-el-title-to-rsm-el-titles-comm.service";
 import { ContactInfoRsmElTitleToRsmElTitlesCommService } from "../contact-info/rsm-el-title-to-rsm-el-titles-comm.service";
 import { EntExpRsmElTitleToRsmElTitlesCommService } from "../enterprise-experience/rsm-el-title-to-rsm-el-titles-comm.service";
+import { PortfolioRsmElTitleToRsmElTitlesCommService } from "../portfolio/rsm-el-title-to-rsm-el-titles-comm.service";
 import { RsmElTitleDirective } from "../reusable-directives/rsm-el-title.directive";
 import { EducationRsmElTitleToRsmElCommService } from "./rsm-el-title-to-rsm-el-comm.service";
 import { EducationRsmElTitleToRsmElTitlesCommService } from "./rsm-el-title-to-rsm-el-titles-comm.service";
@@ -16,6 +17,7 @@ export class EducationRsmElTitleDirective extends RsmElTitleDirective implements
   private commToAbtMeRsmElTitle: Subscription;
   private commToContactInfoRsmElTitle: Subscription;
   private commToEntExpRsmElTitle: Subscription;
+  private commToPortfolioRsmElTitle: Subscription;
 
   constructor(
     el: ElementRef,
@@ -23,7 +25,8 @@ export class EducationRsmElTitleDirective extends RsmElTitleDirective implements
     private commToRsmElTitlesService: EducationRsmElTitleToRsmElTitlesCommService,
     private commToAbtMeRsmElTitleService: AbtMeRsmElTitleToRsmElTitlesCommService,
     private commToContactInfoRsmElTitleService: ContactInfoRsmElTitleToRsmElTitlesCommService,
-    private commToEntExpRsmElTitleService: EntExpRsmElTitleToRsmElTitlesCommService
+    private commToEntExpRsmElTitleService: EntExpRsmElTitleToRsmElTitlesCommService,
+    private commToPortfolioRsmElTitleService: PortfolioRsmElTitleToRsmElTitlesCommService
   ) {
     super(el);
     this.commToAbtMeRsmElTitle = this.commToAbtMeRsmElTitleService.rsmElTitleToRsmElTitles
@@ -31,7 +34,9 @@ export class EducationRsmElTitleDirective extends RsmElTitleDirective implements
     this.commToContactInfoRsmElTitle = this.commToContactInfoRsmElTitleService
       .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });
     this.commToEntExpRsmElTitle = this.commToEntExpRsmElTitleService
-      .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });    
+      .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });
+    this.commToPortfolioRsmElTitle = this.commToPortfolioRsmElTitleService
+      .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });
   }
 
   ngOnDestroy(): void {
@@ -39,6 +44,7 @@ export class EducationRsmElTitleDirective extends RsmElTitleDirective implements
     this.commToAbtMeRsmElTitle.unsubscribe();
     this.commToContactInfoRsmElTitle.unsubscribe();
     this.commToEntExpRsmElTitle.unsubscribe();
+    this.commToPortfolioRsmElTitle.unsubscribe();
     this.logger.debug("EducationRsmElTitleDirective", "ngOnDestroy", "Finish");
   }
 

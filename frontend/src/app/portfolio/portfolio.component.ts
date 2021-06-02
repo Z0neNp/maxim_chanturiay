@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor() { }
+  title: String;
+  
+  constructor() {
+    this.title = "Portfolio";
+  }
 
   ngOnInit(): void {
   }
