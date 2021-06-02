@@ -1,13 +1,15 @@
-* About         -- abt
-* Abstract      -- abs
-* Container     -- ctr
-* Content       -- cntnt
-* Communication -- comm
-* Default       -- def
-* Element       -- el
-* Label         -- lbl
-* Offset        -- offst
-* Paragraph     -- para
-* Resume        -- rsm
-* Segment       -- seg
-* Text          -- txt
+About         -- abt
+Abstract      -- abs
+Container     -- ctr
+Content       -- cntnt
+Communication -- comm
+Default       -- def
+Element       -- el
+Enterprise    -- ent
+Experience    -- exp
+Label         -- lbl
+Offset        -- offst
+Paragraph     -- para
+Resume        -- rsm
+Segment       -- seg
+Text          -- txt

@@ -17,6 +17,9 @@ import { EducationRsmElDirective } from './education/rsm-el.directive';
 import { EducationRsmElTitleDirective } from './education/rsm-el-title.directive';
 
 import { EnterpriseExperienceComponent } from './enterprise-experience/enterprise-experience.component';
+import { EntExpRsmElTitleDirective } from './enterprise-experience/rsm-el-title.directive';
+import { EntExpRsmElDirective } from './enterprise-experience/rsm-el.directive';
+
 import { PortfolioComponent } from './portfolio/portfolio.component';
 
 @NgModule({
@@ -32,7 +35,9 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     EducationRsmElTitleDirective,
     EducationRsmElDirective,
     EnterpriseExperienceComponent,
-    PortfolioComponent,
+    EntExpRsmElTitleDirective,
+    EntExpRsmElDirective,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
