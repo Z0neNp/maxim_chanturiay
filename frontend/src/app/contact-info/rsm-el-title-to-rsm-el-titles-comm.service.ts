@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { RsmElTitleToRsmElTitlesCommService }
-  from "../reusable-services/rsm-el-title-to-rsm-el-titles-comm.service";
+import { RsmElTitleToRsmElTitlesCommService } from "../reusable-services/rsm-el-title-to-rsm-el-titles-comm.service";
 
 @Injectable({
   providedIn: 'root'

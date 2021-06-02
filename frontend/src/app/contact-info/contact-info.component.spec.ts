@@ -3,13 +3,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { environment } from "../../environments/environment";
-
 import { AppModule } from "../app.module";
-
 import { ContactInfoComponent } from './contact-info.component';
-
 import { ContactInfoRsmElTitleDirective } from './rsm-el-title.directive';
-
 import { ContactInfoRsmElDirective } from './rsm-el.directive';
 
 describe('ContactInfoComponent', () => {
@@ -67,19 +63,23 @@ describe('ContactInfoComponent', () => {
     expect(el.classList).toContain("pressed");
   });
 
-  it("should show ContactInfoRsmElTitleDirective as non pressed when touch ends", () => {
-    let directive: DebugNode = contactInfoRsmElTitleDirectiveQueryResponse[0];
-    let el: HTMLElement = directive.nativeNode;
-    el.dispatchEvent(new Event("touchstart"));
-    el.dispatchEvent(new Event("touchend"));
-    setTimeout(() => {
-      expect(el.classList).not.toContain("pressed");
-    }, environment.event.rendered_delay);
-  });
+  it(
+    "should show ContactInfoRsmElTitleDirective as non pressed when touch ends",
+    (done) => {
+      let directive: DebugNode = contactInfoRsmElTitleDirectiveQueryResponse[0];
+      let el: HTMLElement = directive.nativeNode;
+      el.dispatchEvent(new Event("touchstart"));
+      el.dispatchEvent(new Event("touchend"));
+      setTimeout(() => {
+        expect(el.classList).not.toContain("pressed");
+        done();
+      }, environment.event.rendered_delay);
+    }
+  );
 
   it(
     "should show ContactInfoRsmElDirective when ContactInfoRsmElTitleDirective touch ends",
-    () => {
+    (done) => {
       let directive: DebugNode = contactInfoRsmElTitleDirectiveQueryResponse[0];
       let el: HTMLElement = directive.nativeNode;
       el.dispatchEvent(new Event("touchstart"));
@@ -89,6 +89,7 @@ describe('ContactInfoComponent', () => {
       setTimeout(() => {
         expect(el.classList).toContain("rsm-el-shown");
         expect(el.classList).not.toContain("rsm-el-not-shown");
+        done();
       }, environment.event.rendered_delay);
     }
   );

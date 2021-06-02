@@ -2,9 +2,7 @@ import { Directive, ElementRef, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { RsmElDirective } from "../reusable-directives/rsm-el.directive";
-
 import { RsmElState } from "../reusable-enums/rsm-el-state";
-
 import { ContactInfoRsmElTitleToRsmElCommService } from "./rsm-el-title-to-rsm-el-comm.service";
 
 @Directive({
@@ -17,7 +15,7 @@ export class ContactInfoRsmElDirective extends RsmElDirective implements OnDestr
   constructor(
     el: ElementRef,
     private commToRsmElTitleService: ContactInfoRsmElTitleToRsmElCommService
-    ) {
+  ) {
     super(el);
     this.commToRsmElTitle = this.commToRsmElTitleService.rsmElTitleToRsmEl
       .subscribe((state: RsmElState) => this.consumeRsmElState(state));

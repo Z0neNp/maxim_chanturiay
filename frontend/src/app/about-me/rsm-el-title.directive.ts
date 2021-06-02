@@ -21,7 +21,7 @@ export class AbtMeRsmElTitleDirective extends RsmElTitleDirective {
     private commToRsmElTitlesService: AbtMeRsmElTitleToRsmElTitlesCommService,
     private commToContactInfoRsmElTitleService: ContactInfoRsmElTitleToRsmElTitlesCommService,
     private commToEducationRsmElTitleService: EducationRsmElTitleToRsmElTitlesCommService
-    ) {
+  ) {
     super(el);
     this.commToContactInfoRsmElTitle = this.commToContactInfoRsmElTitleService
       .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });
