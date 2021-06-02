@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { ContactInfoRsmElTitleToRsmElTitlesCommService } from "../contact-info/rsm-el-title-to-rsm-el-titles-comm.service";
 import { EducationRsmElTitleToRsmElTitlesCommService } from "../education/rsm-el-title-to-rsm-el-titles-comm.service";
+import { EntExpRsmElTitleToRsmElTitlesCommService } from "../enterprise-experience/rsm-el-title-to-rsm-el-titles-comm.service";
 import { RsmElTitleDirective } from "../reusable-directives/rsm-el-title.directive";
 import { AbtMeRsmElTitleToRsmElCommService } from "./rsm-el-title-to-rsm-el-comm.service";
 import { AbtMeRsmElTitleToRsmElTitlesCommService } from "./rsm-el-title-to-rsm-el-titles-comm.service";
@@ -14,18 +15,22 @@ export class AbtMeRsmElTitleDirective extends RsmElTitleDirective {
 
   private commToContactInfoRsmElTitle: Subscription;
   private commToEducationRsmElTitle: Subscription;
+  private commToEntExpRsmElTitle: Subscription;
 
   constructor(
     el: ElementRef,
     private commToRsmElService: AbtMeRsmElTitleToRsmElCommService,
     private commToRsmElTitlesService: AbtMeRsmElTitleToRsmElTitlesCommService,
     private commToContactInfoRsmElTitleService: ContactInfoRsmElTitleToRsmElTitlesCommService,
-    private commToEducationRsmElTitleService: EducationRsmElTitleToRsmElTitlesCommService
+    private commToEducationRsmElTitleService: EducationRsmElTitleToRsmElTitlesCommService,
+    private commToEntExpRsmElTitleService: EntExpRsmElTitleToRsmElTitlesCommService
   ) {
     super(el);
     this.commToContactInfoRsmElTitle = this.commToContactInfoRsmElTitleService
       .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });
     this.commToEducationRsmElTitle = this.commToEducationRsmElTitleService
+      .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });
+    this.commToEntExpRsmElTitle = this.commToEntExpRsmElTitleService
       .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });
   }
 
@@ -33,6 +38,7 @@ export class AbtMeRsmElTitleDirective extends RsmElTitleDirective {
     this.logger.debug("AbtMeRsmElTitleDirective", "ngOnDestroy", "Start");
     this.commToContactInfoRsmElTitle.unsubscribe();
     this.commToEducationRsmElTitle.unsubscribe();
+    this.commToEntExpRsmElTitle.unsubscribe();
     this.logger.debug("AbtMeRsmElTitleDirective", "ngOnDestroy", "Finish");
   }
 

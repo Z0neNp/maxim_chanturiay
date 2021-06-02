@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { AbtMeRsmElTitleToRsmElTitlesCommService } from "../about-me/rsm-el-title-to-rsm-el-titles-comm.service";
 import { ContactInfoRsmElTitleToRsmElTitlesCommService } from "../contact-info/rsm-el-title-to-rsm-el-titles-comm.service";
+import { EntExpRsmElTitleToRsmElTitlesCommService } from "../enterprise-experience/rsm-el-title-to-rsm-el-titles-comm.service";
 import { RsmElTitleDirective } from "../reusable-directives/rsm-el-title.directive";
 import { EducationRsmElTitleToRsmElCommService } from "./rsm-el-title-to-rsm-el-comm.service";
 import { EducationRsmElTitleToRsmElTitlesCommService } from "./rsm-el-title-to-rsm-el-titles-comm.service";
@@ -14,25 +15,30 @@ export class EducationRsmElTitleDirective extends RsmElTitleDirective implements
 
   private commToAbtMeRsmElTitle: Subscription;
   private commToContactInfoRsmElTitle: Subscription;
+  private commToEntExpRsmElTitle: Subscription;
 
   constructor(
     el: ElementRef,
     private commToRsmElService: EducationRsmElTitleToRsmElCommService,
     private commToRsmElTitlesService: EducationRsmElTitleToRsmElTitlesCommService,
     private commToAbtMeRsmElTitleService: AbtMeRsmElTitleToRsmElTitlesCommService,
-    private commToContactInfoRsmElTitleService: ContactInfoRsmElTitleToRsmElTitlesCommService
+    private commToContactInfoRsmElTitleService: ContactInfoRsmElTitleToRsmElTitlesCommService,
+    private commToEntExpRsmElTitleService: EntExpRsmElTitleToRsmElTitlesCommService
   ) {
     super(el);
     this.commToAbtMeRsmElTitle = this.commToAbtMeRsmElTitleService.rsmElTitleToRsmElTitles
       .subscribe(() => { this.consumeEventFromRsmElTitle(); });
     this.commToContactInfoRsmElTitle = this.commToContactInfoRsmElTitleService
       .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });
+    this.commToEntExpRsmElTitle = this.commToEntExpRsmElTitleService
+      .rsmElTitleToRsmElTitles.subscribe(() => { this.consumeEventFromRsmElTitle(); });    
   }
 
   ngOnDestroy(): void {
     this.logger.debug("EducationRsmElTitleDirective", "ngOnDestroy", "Start");
     this.commToAbtMeRsmElTitle.unsubscribe();
     this.commToContactInfoRsmElTitle.unsubscribe();
+    this.commToEntExpRsmElTitle.unsubscribe();
     this.logger.debug("EducationRsmElTitleDirective", "ngOnDestroy", "Finish");
   }
 
