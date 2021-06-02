@@ -12,9 +12,12 @@ import { ContactInfoComponent } from './contact-info/contact-info.component';
 import { ContactInfoRsmElDirective } from './contact-info/rsm-el.directive';
 import { ContactInfoRsmElTitleDirective } from './contact-info/rsm-el-title.directive';
 
+import { EducationComponent } from './education/education.component';
+import { EducationRsmElDirective } from './education/rsm-el.directive';
+import { EducationRsmElTitleDirective } from './education/rsm-el-title.directive';
+
 import { EnterpriseExperienceComponent } from './enterprise-experience/enterprise-experience.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
-import { EducationComponent } from './education/education.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,11 @@ import { EducationComponent } from './education/education.component';
     ContactInfoComponent,
     ContactInfoRsmElDirective,
     ContactInfoRsmElTitleDirective,
+    EducationComponent,
+    EducationRsmElTitleDirective,
+    EducationRsmElDirective,
     EnterpriseExperienceComponent,
     PortfolioComponent,
-    EducationComponent,
   ],
   imports: [
     BrowserModule,

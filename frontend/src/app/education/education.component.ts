@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EducationComponent implements OnInit {
 
-  constructor() { }
+  title: String;
+
+  constructor() {
+    this.title = "Education";
+  }
 
   ngOnInit(): void {
   }
