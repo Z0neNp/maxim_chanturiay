@@ -2,9 +2,7 @@ import { Directive, ElementRef, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { RsmElDirective } from "../reusable-directives/rsm-el.directive";
-
 import { RsmElState } from "../reusable-enums/rsm-el-state";
-
 import { AbtMeRsmElTitleToRsmElCommService } from "./rsm-el-title-to-rsm-el-comm.service";
 
 @Directive({

@@ -3,13 +3,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { environment } from "../../environments/environment";
-
 import { AppModule } from "../app.module";
-
-import { AboutMeComponent } from './about-me.component';
-
+import { AboutMeComponent } from "./about-me.component";
 import { AbtMeRsmElDirective } from './rsm-el.directive';
-
 import { AbtMeRsmElTitleDirective } from './rsm-el-title.directive';
 
 describe('AboutMeComponent', () => {
@@ -65,26 +61,34 @@ describe('AboutMeComponent', () => {
     expect(el.classList).toContain("pressed");
   });
 
-  it("should show AbtMeRsmElTitleDirective as non pressed when touch ends", () => {
-    let directive: DebugNode = abtMeRsmElTitleDirectiveQueryResponse[0];
-    let el: HTMLElement = directive.nativeNode;
-    el.dispatchEvent(new Event("touchstart"));
-    el.dispatchEvent(new Event("touchend"));
-    setTimeout(() => {
-      expect(el.classList).not.toContain("pressed");
-    }, environment.event.rendered_delay);
-  });
+  it(
+    "should show AbtMeRsmElTitleDirective as non pressed when touch ends",
+    (done) => {
+      let directive: DebugNode = abtMeRsmElTitleDirectiveQueryResponse[0];
+      let el: HTMLElement = directive.nativeNode;
+      el.dispatchEvent(new Event("touchstart"));
+      el.dispatchEvent(new Event("touchend"));
+      setTimeout(() => {
+        expect(el.classList).not.toContain("pressed");
+        done();
+      }, environment.event.rendered_delay);
+    }
+  );
 
-  it("should show AbtMeRsmElDirective when AbtMeRsmElTitleDirective touch ends", () => {
-    let directive: DebugNode = abtMeRsmElTitleDirectiveQueryResponse[0];
-    let el: HTMLElement = directive.nativeNode;
-    el.dispatchEvent(new Event("touchstart"));
-    el.dispatchEvent(new Event("touchend"));
-    directive = abtMeRsmElDirectiveQueryResponse[0];
-    el = directive.nativeNode;
-    setTimeout(() => {
-      expect(el.classList).toContain("rsm-el-shown");
-      expect(el.classList).not.toContain("rsm-el-not-shown");
-    }, environment.event.rendered_delay);
-  });
+  it(
+    "should show AbtMeRsmElDirective when AbtMeRsmElTitleDirective touch ends",
+    (done) => {
+      let directive: DebugNode = abtMeRsmElTitleDirectiveQueryResponse[0];
+      let el: HTMLElement = directive.nativeNode;
+      el.dispatchEvent(new Event("touchstart"));
+      el.dispatchEvent(new Event("touchend"));
+      directive = abtMeRsmElDirectiveQueryResponse[0];
+      el = directive.nativeNode;
+      setTimeout(() => {
+        expect(el.classList).toContain("rsm-el-shown");
+        expect(el.classList).not.toContain("rsm-el-not-shown");
+        done();
+      }, environment.event.rendered_delay);
+    }
+  );
 });
