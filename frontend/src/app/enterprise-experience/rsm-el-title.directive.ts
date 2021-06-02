@@ -20,7 +20,7 @@ export class EntExpRsmElTitleDirective extends RsmElTitleDirective implements On
   constructor(
     el: ElementRef,
     private commToRsmElService: EntExpRsmElTitleToRsmElCommService,
-    private commToRsmElTitlesService: AbtMeRsmElTitleToRsmElTitlesCommService,
+    private commToRsmElTitlesService: EntExpRsmElTitleToRsmElTitlesCommService,
     private commToAbtMeRsmElTitleService: AbtMeRsmElTitleToRsmElTitlesCommService,
     private commToContactInfoRsmElTitleService: ContactInfoRsmElTitleToRsmElTitlesCommService,
     private commToEducationRsmElTitleService: EducationRsmElTitleToRsmElTitlesCommService
