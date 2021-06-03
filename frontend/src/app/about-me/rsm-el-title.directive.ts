@@ -12,7 +12,7 @@ import { AbtMeRsmElTitleToRsmElTitlesCommService } from "./rsm-el-title-to-rsm-e
 @Directive({
   selector: '[appAbtMeRsmElTitle]'
 })
-export class AbtMeRsmElTitleDirective extends RsmElTitleDirective {
+export class AbtMeRsmElTitleDirective extends RsmElTitleDirective implements OnDestroy {
 
   private commToContactInfoRsmElTitle: Subscription;
   private commToEducationRsmElTitle: Subscription;
