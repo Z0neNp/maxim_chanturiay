@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { RsmElDirective } from "../reusable-directives/rsm-el.directive";
@@ -8,7 +8,7 @@ import { AbtMeRsmElTitleToRsmElCommService } from "./rsm-el-title-to-rsm-el-comm
 @Directive({
   selector: '[appAbtMeRsmEl]'
 })
-export class AbtMeRsmElDirective extends RsmElDirective implements OnDestroy {
+export class AbtMeRsmElDirective extends RsmElDirective implements OnDestroy, OnInit {
 
   private commToRsmElTitle: Subscription;
   
@@ -23,6 +23,12 @@ export class AbtMeRsmElDirective extends RsmElDirective implements OnDestroy {
     this.logger.debug("AbtMeRsmElDirective", "ngOnDestroy", "Start");
     this.commToRsmElTitle.unsubscribe();
     this.logger.debug("AbtMeRsmElDirective", "ngOnDestroy", "Finish");
+  }
+
+  ngOnInit(): void {
+    this.logger.debug("AbtMeRsmElDirective", "ngOnInit", "Start");
+    this.showDirective();
+    this.logger.debug("AbtMeRsmElDirective", "ngOnInit", "Finish");
   }
 
   private consumeRsmElState(state: RsmElState): void {

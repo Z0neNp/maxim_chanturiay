@@ -46,9 +46,9 @@ export class RsmElTitleDirective implements OnInit {
   }
 
   protected showNonPressed() {
-    this.el.nativeElement.scrollIntoView();
     setTimeout(() => {
       this.el.nativeElement.classList.remove("pressed");
+      this.el.nativeElement.scrollIntoView();
     }, environment.event.pressed_delay);
   }
 
