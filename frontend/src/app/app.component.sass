@@ -3,6 +3,14 @@
 .app-container
   width: 100%
 
+.material-icons.rsm-el-seg-title-icon
+  color: rgb(109, 128, 158)
+  font-size: 2.5em
+
+.material-icons.rsm-el-seg-ctr-item-icon
+  color: rgb(80, 187, 83)
+  font-size: 2em
+
 .not-rendered
   display: none
 
@@ -27,20 +35,23 @@
 
 .rsm-el-def-txt
   font-family: 'Raleway', sans-serif
-  font-size: 1.2em
+  font-size: 1.1em
+
+.rsm-el-seg
+  display: inline-flex
+  flex-direction: column
+
+.rsm-el-seg-ctr
+  display: inline-flex
+  flex-direction: column
+  padding-left: 0.5em
 
 .rsm-el-seg-ctr-item
-  background-color: #ff9800
-  border-color: rgb(0, 0, 0)
-  border-radius: 0.4em
-  display: inline-block
-  margin-bottom: 0.1em
-  margin-left: 0.1em
-  margin-right: 0.1em
-  padding-bottom: 0.4em
-  padding-left: 0.4em
-  padding-right: 0.4em
-  padding-top: 0.4em
+  align-items: center
+  display: inline-flex
+  flex-direction: row
+  list-style-type: none
+  margin-bottom: 1em
 
 .rsm-el-seg-tech-ctr
   display: flex
@@ -73,10 +84,21 @@
 .rsm-el-seg-tech-ctr-item-back
   padding-top: 1.5em
   transform: rotateY(180deg)
-  font-size: 1.2em
+  font-family: 'Yanone Kaffeesatz', sans-serif
+  font-size: 1.1em
+  font-weight: 650
 
 .rsm-el-seg-tech-ctr-item-front
   background-color: white
+
+.rsm-el-seg-title
+  align-items: center
+  display: inline-flex
+  flex-direction: row
+  font-family: 'Stint Ultra Condensed', cursive
+  font-size: 1.7em
+  margin-top: 0em
+  margin-bottom: 0em
 
 .rsm-el-shown
   transform: translateY(0)
@@ -88,7 +110,7 @@
   border-radius: 0.2em
   color: #ffffff
   font-family: 'Courgette', cursive
-  font-size: 1.9em
+  font-size: 2.0em
   height: 1.5em
   padding-left: 0.3em
   padding-top: 0.2em
