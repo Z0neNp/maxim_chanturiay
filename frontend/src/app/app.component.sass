@@ -27,7 +27,56 @@
 
 .rsm-el-def-txt
   font-family: 'Raleway', sans-serif
-  font-size: 1.4em
+  font-size: 1.2em
+
+.rsm-el-seg-ctr-item
+  background-color: #ff9800
+  border-color: rgb(0, 0, 0)
+  border-radius: 0.4em
+  display: inline-block
+  margin-bottom: 0.1em
+  margin-left: 0.1em
+  margin-right: 0.1em
+  padding-bottom: 0.4em
+  padding-left: 0.4em
+  padding-right: 0.4em
+  padding-top: 0.4em
+
+.rsm-el-seg-tech-ctr
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+  padding-left: 0em
+
+.rsm-el-seg-tech-ctr-item
+  height: 6em
+  list-style-type: none
+  margin-right: 1em
+  margin-left: 1em
+  text-align: center
+  perspective: 10em
+  transform-style: preserve-3d
+  transition: transform 0.8s
+  width: 6em
+
+.rsm-el-seg-tech-ctr-item:hover
+  transform: rotateY(180deg)
+
+.rsm-el-seg-tech-ctr-item-back, .rsm-el-seg-tech-ctr-item-front
+  backface-visibility: hidden
+  height: 100%
+  position: absolute
+  width: 100%
+  -webkit-backface-visibility: hidden /* Safari */
+
+.rsm-el-seg-tech-ctr-item-back
+  padding-top: 1.5em
+  transform: rotateY(180deg)
+  font-size: 1.2em
+
+.rsm-el-seg-tech-ctr-item-front
+  background-color: white
 
 .rsm-el-shown
   transform: translateY(0)
