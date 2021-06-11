@@ -1,4 +1,36 @@
 @import 'src/app/app.component'
 
+.education-seg
+  @include inline-content-aligned-horizontally()
+
+  .curiculum
+    @include inline-content-aligned-horizontally()
+    @include content-not-touching-parent()
+  
+    .subject
+      @include inline-content-aligned-vertically()
+      list-style-type: none
+      margin-bottom: 1em
+      width: 100%
+
+    .subject-icon
+      color: rgb(80, 187, 83)
+      font-size: 1.7em
+
+  .def-text
+    @include def-text()
+
+  .title
+    @include inline-content-aligned-vertically()
+    @include def-sub-title()
+    margin-bottom: 0em
+
+  .title-icon
+    color: rgb(109, 128, 158)
+    font-size: 2.0em
+
 .rsm-el-not-shown
   @include offset-to-top(20em)
+
+.rsm-el-shown
+  @include inline-content-aligned-horizontally()

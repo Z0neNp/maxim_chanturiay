@@ -21,28 +21,8 @@
   transition: transform 0.1s
 
 .rsm-el-ctr
-  padding-left: 0.5em
-  padding-right: 0.5em
+  @include content-not-touching-parent()
   overflow: hidden
-
-.rsm-el-seg-ctr
-  display: inline-flex
-  flex-direction: column
-  padding-left: 0.5em
-
-.rsm-el-seg-ctr-item
-  align-items: center
-  display: inline-flex
-  flex-direction: row
-  list-style-type: none
-  margin-bottom: 1em
-
-.rsm-el-seg-tech-ctr
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  justify-content: center
-  padding-left: 0em
 
 .rsm-el-shown
   transform: translateY(0)
@@ -50,11 +30,10 @@
   transition: transform 1s ease-out
 
 .rsm-el-title
+  @include def-title()
   background-color: #4a8fff
   border-radius: 0.2em
   color: #ffffff
-  font-family: 'Courgette', cursive
-  font-size: 2.0em
   height: 1.5em
   padding-left: 0.3em
   padding-top: 0.2em
