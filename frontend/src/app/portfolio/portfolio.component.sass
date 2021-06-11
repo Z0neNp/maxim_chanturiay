@@ -1,4 +1,28 @@
 @import 'src/app/app.component'
 
+.portfolio-seg
+  
+  .card
+    text-align: center
+    box-shadow: 0 1em 1em 0 rgba(0, 0, 0, 0.2)
+    margin-bottom: 2.5em
+    padding-left: 2em
+    padding-right: 2em
+    width: 20em
+    min-height: 20em
+
+    .title
+      @include def-sub-title()
+      margin-bottom: 0em
+    
+    .thumbnail
+      width: 100%
+
+  .def-text
+    @include def-text()
+
 .rsm-el-not-shown
   @include offset-to-top(20em)
+
+.rsm-el-shown
+  @include inline-content-aligned-vertically()
