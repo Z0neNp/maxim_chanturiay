@@ -16,10 +16,19 @@
   font-family: 'Raleway', sans-serif
   font-size: 1.1em
 
-@mixin inline-flex-column
+@mixin def-sub-title
+  font-family: 'Stint Ultra Condensed', cursive
+  font-size: 1.7em
+
+@mixin inline-content-aligned-horizontally
+  align-items: flex-start
   display: inline-flex
   flex-direction: column
-  flex-wrap: wrap
+
+@mixin inline-content-aligned-vertically
+  align-items: center
+  display: inline-flex
+  flex-direction: row
 
 @mixin offset-to-top($offset-units)
   transform: translateY(-$offset-units)
