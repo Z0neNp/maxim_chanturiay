@@ -8,6 +8,19 @@
 
 @import 'material-icons/iconfont/material-icons.css'
 
+@mixin content-not-touching-parent
+  padding-left: 0.5em
+  padding-right: 0.5em
+
+@mixin def-text
+  font-family: 'Raleway', sans-serif
+  font-size: 1.1em
+
+@mixin inline-flex-column
+  display: inline-flex
+  flex-direction: column
+  flex-wrap: wrap
+
 @mixin offset-to-top($offset-units)
   transform: translateY(-$offset-units)
   transform-origin: top center
