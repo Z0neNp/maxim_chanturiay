@@ -1,4 +1,69 @@
 @import 'src/app/app.component'
 
+.ent-exp-seg
+  @include inline-content-aligned-horizontally()
+  
+  .def-text
+    @include def-text()
+  
+  .responsibilities
+    @include inline-content-aligned-horizontally()
+    @include content-not-touching-parent()
+  
+  .responsibility
+    @include inline-content-aligned-vertically()
+    list-style-type: none
+    margin-bottom: 1em
+    width: 100%
+
+  .responsibility-icon
+    color: rgb(80, 187, 83)
+    font-size: 1.7em
+  
+  .sw-tools
+    @include inline-content-aligned-vertically
+    justify-content: space-between
+    flex-wrap: wrap
+  
+  .sw-tool
+    height: 6em
+    list-style-type: none
+    margin-right: 1em
+    margin-left: 1em
+    text-align: center
+    perspective: 10em
+    transform-style: preserve-3d
+    transition: transform 0.8s
+    width: 6em
+
+    .back, .front
+      backface-visibility: hidden
+      height: 100%
+      position: absolute
+      width: 100%
+      -webkit-backface-visibility: hidden /* Safari */
+    
+    .back
+      padding-top: 1.5em
+      transform: rotateY(180deg)
+      font-family: 'Yanone Kaffeesatz', sans-serif
+      font-size: 1.1em
+      font-weight: 650
+
+    .front
+      background-color: white
+
+  .sw-tool:hover
+    transform: rotateY(180deg)
+  
+  .title
+    @include inline-content-aligned-vertically()
+    @include def-sub-title()
+    margin-bottom: 0em
+
+  .title-icon
+    color: rgb(109, 128, 158)
+    font-size: 2em
+
 .rsm-el-not-shown
   @include offset-to-top(30em)
