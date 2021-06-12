@@ -31,68 +31,12 @@
         </li>
       </ul>
       <ul class="sw-tools">
-        <li class="sw-tool">
+        <li *ngFor="let tool of tools" class="sw-tool">
           <div class="front">
-            <img src="replace_me.png" alt="Ruby on Rails">
+            <img [src]=pngSrcFromBase64(tool.icon.src) alt="tool.icon.alt">
           </div>
           <div class="back">
-            Ruby On Rails 5.x
-          </div>
-        </li>
-        <li class="sw-tool">
-          <div class="front">
-            <img src="replace_me.png" alt="Ruby 2.x">
-          </div>
-          <div class="back">
-            Ruby 2.x
-          </div>
-        </li>
-        <li class="sw-tool">
-          <div class="front">
-            <img src="replace_me.png" alt="HTTP">
-          </div>
-          <div class="back">
-            HTTP
-          </div>
-        </li>
-        <li class="sw-tool">
-          <div class="front">
-            <img src="replace_me.png" alt="JSON">
-          </div>
-          <div class="back">
-            JSON
-          </div>
-        </li>
-        <li class="sw-tool">
-          <div class="front">
-            <img src="replace_me.png" alt="AngularJS">
-          </div>
-          <div class="back">
-            AngularJS
-          </div>
-        </li>
-        <li class="sw-tool">
-          <div class="front">
-            <img src="replace_me.png" alt="HTML">
-          </div>
-          <div class="back">
-            HTML
-          </div>
-        </li>
-        <li class="sw-tool">
-          <div class="front">
-            <img src="replace_me.png" alt="CSS">
-          </div>
-          <div class="back">
-            CSS
-          </div>
-        </li>
-        <li class="sw-tool">
-          <div class="front">
-            <img src="replace_me.png" alt="JavaScript">
-          </div>
-          <div class="back">
-            JavaScript
+            <a [href]=tool.link>{{tool.name}}</a>
           </div>
         </li>
       </ul>

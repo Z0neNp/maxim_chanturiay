@@ -29,8 +29,9 @@
   .sw-tool
     height: 6em
     list-style-type: none
-    margin-right: 1em
-    margin-left: 1em
+    margin-bottom: 0.5em
+    margin-right: 0.5em
+    margin-left: 0.5em
     text-align: center
     perspective: 10em
     transform-style: preserve-3d
@@ -45,17 +46,21 @@
       -webkit-backface-visibility: hidden /* Safari */
     
     .back
-      padding-top: 1.5em
-      transform: rotateY(180deg)
+      line-height: 4em
+      transform: rotateX(180deg)
       font-family: 'Yanone Kaffeesatz', sans-serif
-      font-size: 1.1em
+      font-size: 1.3em
       font-weight: 650
 
     .front
       @include image-alt()
 
+      img
+        height: 100%
+        width: 100%
+
   .sw-tool:hover
-    transform: rotateY(180deg)
+    transform: rotateX(180deg)
   
   .title
     @include inline-content-aligned-vertically()
