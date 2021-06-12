@@ -3,18 +3,15 @@
   <div appContactInfoRsmEl>
     <div class="contact-info-seg">
       <ul class="contact-info-chips">
-        <li class="contact-info-chip">
-          <img class="thumbnail" src="what" alt="LinkedIn icon">
-          <span class="def-text">
-            <a href="https://www.linkedin.com/in/maxim-ch/">
-            LinkedIn
+        <li *ngFor="let chip of chips" class="contact-info-chip">
+          <img class="thumbnail" [src]=pngSrcFromBase64(chip.icon.src) alt="{{chip.icon.alt}}">
+          <span *ngIf="chip.hasLink()" class="def-text">
+            <a href="chip.link">
+            {{chip.value}}
             </a>
           </span>
-        </li>
-        <li class="contact-info-chip">
-          <img class="thumbnail" src="what" alt="Gmail icon">
-          <span class="def-text">
-            maxchanturiay@gmail.com
+          <span *ngIf="!chip.hasLink()" class="def-text">
+            {{chip.value}}
           </span>
         </li>
       </ul>

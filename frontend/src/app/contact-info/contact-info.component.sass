@@ -4,12 +4,12 @@
   @include content-not-touching-parent()
   
   .contact-info-chip
+    @include image-alt()
     align-items: center
     display: inline-flex
     height: 3em
     padding-right: 1em
     border-radius: 3em
-    background-color: #f1f1f1
     margin-bottom: 0.5em
   
     .def-text
@@ -17,9 +17,8 @@
     
     .thumbnail
       border-color: #f1f1f1
-      border-radius: 50%
-      height: 90%
       width: 3em
+      height: 3em
       margin-right: 1em
 
 .rsm-el-not-shown
