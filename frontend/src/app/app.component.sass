@@ -1,7 +1,23 @@
 @import 'src/styles'
 
 .app-container
-  width: 100%
+  @media screen and (min-width: 1024px)
+    display: grid
+    gap: 1em
+    margin-left: 2%
+    width: 90%
+
+.left-column
+  @media screen and (min-width: 1024px)
+    background-color: rgba(44, 112, 44, 1)
+    border-radius: 10px
+    grid-column: 1 / 4
+    grid-row: 1
+
+.right-column
+  @media screen and (min-width: 1024px)
+    grid-column: 4 / 20
+    grid-row: 1
 
 .not-rendered
   display: none
@@ -9,12 +25,6 @@
 .rendered
   overflow: hidden
   display: block
-
-.page-title
-  font-family: 'Lobster', cursive
-  font-size: 2.5em
-  font-weight: 100
-  text-align: center
 
 .pressed
   transform: scale(0.95)
@@ -32,10 +42,24 @@
 .rsm-el-title
   @include def-title()
   @include noselect()
-  background-color: #4a8fff
-  border-radius: 0.2em
-  color: #ffffff
-  height: 1.5em
-  padding-left: 0.3em
-  padding-top: 0.2em
-  text-align: left
+  
+  @media screen and (min-width: 1024px)
+    color: rgba(255, 255, 255, 1)
+    font-size: 1.4em
+    border-bottom-color: rgba(255, 255, 255, 1)
+    border-bottom-width: 0.1em
+    border-bottom-style: solid
+    margin-left: 1%
+    padding-left: 2%
+    text-align: left
+    width: 95%
+  
+  @media screen and (max-width: 1023px)
+    background-color: rgba(44, 112, 44, 1)
+    border-radius: 0.2em
+    color: rgba(255, 255, 255, 1)
+    height: 1.5em
+    padding-left: 1%
+    padding-top: 0.2em
+    text-align: left
+    width: 100%

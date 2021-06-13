@@ -3,6 +3,9 @@
 .ent-exp-seg
   @include inline-content-aligned-horizontally()
   
+  @media screen and (min-width: 1024px)
+    width: 45%
+
   .def-text
     @include def-text()
   
@@ -19,24 +22,23 @@
   .responsibility-icon
     color: rgb(80, 187, 83)
     font-size: 1.7em
-  
+
   .sw-tools
     @include inline-content-aligned-vertically
+    padding-left: 0.5em
     justify-content: space-between
     flex-wrap: wrap
     max-width: 35em
   
   .sw-tool
-    height: 6em
+    height: 4em
     list-style-type: none
     margin-bottom: 0.5em
-    margin-right: 0.5em
-    margin-left: 0.5em
     text-align: center
     perspective: 10em
     transform-style: preserve-3d
     transition: transform 0.8s
-    width: 6em
+    width: 4em
 
     .back, .front
       backface-visibility: hidden
@@ -49,11 +51,11 @@
       line-height: 4em
       transform: rotateX(180deg)
       font-family: 'Yanone Kaffeesatz', sans-serif
-      font-size: 1.3em
+      font-size: 1em
       font-weight: 650
 
     .front
-      @include image-alt()
+      background-color: rgba(241, 241, 241, 1)
 
       img
         height: 100%
@@ -76,3 +78,8 @@
 
 .rsm-el-shown
   @include inline-content-aligned-horizontally()
+
+.rsm-el-title
+  @media screen and (min-width: 1024px)
+    border-bottom-color: rgba(0, 0, 0, 1)
+    color: rgba(0, 0, 0, 1)

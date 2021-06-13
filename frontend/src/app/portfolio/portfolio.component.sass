@@ -1,6 +1,11 @@
 @import 'src/app/app.component'
 
 .portfolio-seg
+  @include inline-content-aligned-horizontally()
+  
+  @media screen and (min-width: 1024px)
+    width: 45%
+    margin-right: 2%
   
   .card
     text-align: center
@@ -8,7 +13,6 @@
     margin-bottom: 2.5em
     padding-left: 2em
     padding-right: 2em
-    width: 20em
     min-height: 20em
 
     .title
@@ -27,3 +31,8 @@
 .rsm-el-shown
   @include inline-content-aligned-vertically()
   flex-wrap: wrap
+
+.rsm-el-title
+  @media screen and (min-width: 1024px)
+    border-bottom-color: rgba(0, 0, 0, 1)
+    color: rgba(0, 0, 0, 1)

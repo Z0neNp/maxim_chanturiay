@@ -3,23 +3,39 @@
 .contact-info-chips
   @include content-not-touching-parent()
   
+  a:link
+    @media screen and (min-width: 1024px)
+      color: rgba(255, 255, 255, 1)
+
+  a:visited
+    @media screen and (min-width: 1024px)
+      color: rgba(188, 153, 153, 1)
+
   .contact-info-chip
-    @include image-alt()
+    @media screen and (min-width: 1024px)
+      background-color: rgba(63, 114, 63, 1)
+
+    @media screen and (max-width: 1023px)
+      background-color: rgba(241, 241, 241, 1)
+    
     align-items: center
     display: inline-flex
     height: 3em
     padding-right: 1em
-    border-radius: 3em
+    border-radius: 1em
     margin-bottom: 0.5em
   
     .def-text
       @include def-text()
+      @media screen and (min-width: 1024px)
+        color: rgba(255, 255, 255, 1)
     
     .thumbnail
-      border-color: #f1f1f1
-      width: 3em
+      background-color: rgba(63, 114, 63, 1)
+      border-radius: 1em
       height: 3em
       margin-right: 1em
+      width: 3em
 
 .rsm-el-not-shown
   @include offset-to-top(10em)

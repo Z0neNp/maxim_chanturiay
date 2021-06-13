@@ -16,7 +16,8 @@ export class RsmElDirective implements OnInit {
   }
 
   ngOnInit(): void {
-    this.doNotShowDirective();
+    if (window.innerWidth < 1024)
+      this.doNotShowDirective();
   }
 
   protected doNotShowDirective(): void {
