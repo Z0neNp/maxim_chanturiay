@@ -6,7 +6,7 @@
         <li *ngFor="let chip of chips" class="contact-info-chip">
           <img class="thumbnail" [src]=pngSrcFromBase64(chip.icon.src) alt="{{chip.icon.alt}}">
           <span *ngIf="chip.hasLink()" class="def-text">
-            <a href="chip.link">
+            <a [href]=chip.link>
             {{chip.value}}
             </a>
           </span>
