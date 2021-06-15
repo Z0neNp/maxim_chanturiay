@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
-import { SoftwareTool } from "./software-tool";
-
-import { TOOLS } from "./mock-sw-tools";
+import { Position } from "./position";
+import { POSITIONS } from "./mock-positions";
 
 @Component({
   selector: 'app-enterprise-experience',
@@ -13,11 +12,11 @@ import { TOOLS } from "./mock-sw-tools";
 export class EnterpriseExperienceComponent implements OnInit {
 
   title: String;
-  tools: SoftwareTool[];
+  positions: Position[];
 
   constructor(private sanitizer: DomSanitizer) {
     this.title = "Enterprise Experience";
-    this.tools = TOOLS;
+    this.positions = POSITIONS;
   }
 
   ngOnInit(): void {

@@ -19,14 +19,6 @@ export class RsmElTitleDirective implements OnInit {
     this.defaultStyle();
   }
 
-  // @HostListener('mousedown') onMouseDown() {
-  //   this.addPressedClass();
-  // }
-
-  // @HostListener('mouseup') onMouseLeave() {
-  //   this.removePressedClass();
-  // }
-
   @HostListener('touchend')
   onTouchEnd() {
     this.showNonPressed();
@@ -36,10 +28,6 @@ export class RsmElTitleDirective implements OnInit {
   onTouchStart() {
     this.showPressed();
   }
-
-  // @HostListener('mouseover') onMouseOver() {
-  //   this.el.nativeElement.style.cursor = "pointer";
-  // }
 
   protected defaultStyle() {
     this.el.nativeElement.classList.add("rsm-el-title");

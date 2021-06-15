@@ -1,37 +1,25 @@
 <h1 appEntExpRsmElTitle>{{title}}</h1>
 <div class="rsm-el-ctr">
   <div appEntExpRsmEl>
-    <div class="ent-exp-seg">
+    <div *ngFor="let position of positions" class="ent-exp-seg">
       <h2 class="title">
         <span class="material-icons title-icon">
           assignment
         </span>
         <span>
-          2020 - Present: IBM - SaaS QA Automation Engineer
+          {{position.start}} - {{position.end}}: {{position.title}}
         </span>
       </h2>
-      <ul class="responsibilities">
-        <li class="responsibility">
+      <ul *ngIf="position.hasResponsibilities()" class="responsibilities">
+        <li *ngFor="let responsibility of position.responsibilities" class="responsibility">
           <span class="material-icons responsibility-icon">
             check_circle
           </span>
-          <span class="def-text">Maintaining Automation Framework source code</span>
-        </li>
-        <li class="responsibility">
-          <span class="material-icons responsibility-icon">
-            check_circle
-          </span>
-          <span class="def-text">Maintaining Automation Workers</span>
-        </li>
-        <li class="responsibility">
-          <span class="material-icons responsibility-icon">
-            check_circle
-          </span>
-          <span class="def-text">Contributing new features to the Automation Framework</span>
+          <span class="def-text">{{responsibility}}</span>
         </li>
       </ul>
-      <ul class="sw-tools">
-        <li *ngFor="let tool of tools" class="sw-tool">
+      <ul *ngIf="position.hasSoftwareTools()" class="sw-tools">
+        <li *ngFor="let tool of position.softwareTools" class="sw-tool">
           <div class="front">
             <img [src]=pngSrcFromBase64(tool.icon.src) alt="tool.icon.alt">
           </div>
@@ -41,41 +29,5 @@
         </li>
       </ul>
     </div>
-    <div class="ent-exp-seg">
-      <h2 class="title">
-        <span class="material-icons title-icon">
-          assignment
-        </span>
-        <span>
-          2017 - 2020: IBM - SaaS QA Automation Student Position
-        </span>
-      </h2>
-      <ul class="rsm-el-seg-ctr">
-        <li class="responsibility">
-          <span class="material-icons responsibility-icon">
-            check_circle
-          </span>
-          <span class="def-text">Testing Backend API</span>
-        </li>
-        <li class="responsibility">
-          <span class="material-icons responsibility-icon">
-            check_circle
-          </span>
-          <span class="def-text">Testing Prediction Algorithms</span>
-        </li>
-        <li class="responsibility">
-          <span class="material-icons responsibility-icon">
-            check_circle
-          </span>
-          <span class="def-text">Testing Frontend features</span>
-        </li>
-        <li class="responsibility">
-          <span class="material-icons responsibility-icon">
-            check_circle
-          </span>
-          <span class="def-text">Contributing tests to the Automation Framework</span>
-        </li>
-      </ul>
-  </div>
   </div>
 </div>
